@@ -12,6 +12,11 @@ body {
     line-height: 1.6;
 }
 
+@keyframes brilhoAnimado {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
 /* Header */
 .header {
     background-color: #D32F2F;
@@ -512,6 +517,11 @@ th {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+    .header-content p {
+        display: none;
+    }
+
     .mobile-menu-btn {
         display: block;
     }
