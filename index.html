@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Pizzaria - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    
+    <meta name="theme-color" content="#D32F2F">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Sistema Pizzaria">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    
+    <link rel="manifest" href="manifest.json">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon-180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icon-16.png">
+</head>
+<script>
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js')
+      .then(function(registration) {
+        console.log('SW registrado com sucesso');
+      })
+      .catch(function(registrationError) {
+        console.log('SW falhou ao registrar');
+      });
+  });
+}
+</script>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-pizza-slice"></i>
+                <span>PIZZARIA TORTILHÃO</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link" data-page="dashboard">
+                        <i class="fas fa-home"></i>
+                        <span>Início</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="clientes">
+                        <i class="fas fa-users"></i>
+                        <span>Clientes</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="reservas">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Reservas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-page="configuracoes">
+                        <i class="fas fa-cog"></i>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Page -->
+        <div class="page active" id="dashboard">
+            <div class="page-header">
+                <h1>Dashboard</h1>
+            </div>
+            
+            <div class="dashboard-grid">
+                <!-- Reservas do Dia -->
+                <div class="card reservas-card">
+                    <div class="card-header">
+                        <h2>Reservas do Dia</h2>
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="reserva-item">
+                            <div class="reserva-info">
+                                <span class="cliente-nome">João Silva</span>
+                                <span class="reserva-horario">19:00 - 4 pessoas</span>
+                            </div>
+                            <span class="reserva-tipo rodizio">Rodízio</span>
+                        </div>
+                        <div class="reserva-item">
+                            <div class="reserva-info">
+                                <span class="cliente-nome">Maria Santos</span>
+                                <span class="reserva-horario">20:30 - 2 pessoas</span>
+                            </div>
+                            <span class="reserva-tipo alacarte">À la carte</span>
+                        </div>
+                        <div class="reserva-item">
+                            <div class="reserva-info">
+                                <span class="cliente-nome">Pedro Costa</span>
+                                <span class="reserva-horario">21:00 - 6 pessoas</span>
+                            </div>
+                            <span class="reserva-tipo rodizio">Rodízio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aniversariantes -->
+                <div class="card aniversariantes-card">
+                    <div class="card-header">
+                        <h2>Aniversariantes Próximos 7 Dias</h2>
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="card-content">
+                        <div class="aniversariante-item">
+                            <div class="aniversariante-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="aniversariante-info">
+                                <span class="aniversariante-nome">Ana Oliveira</span>
+                                <span class="aniversariante-data">Amanhã</span>
+                            </div>
+                            <button class="btn-contato">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                        </div>
+                        <div class="aniversariante-item">
+                            <div class="aniversariante-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="aniversariante-info">
+                                <span class="aniversariante-nome">Carlos Lima</span>
+                                <span class="aniversariante-data">Em 3 dias</span>
+                            </div>
+                            <button class="btn-contato">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                        </div>
+                        <div class="aniversariante-item">
+                            <div class="aniversariante-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="aniversariante-info">
+                                <span class="aniversariante-nome">Lucia Ferreira</span>
+                                <span class="aniversariante-data">Em 5 dias</span>
+                            </div>
+                            <button class="btn-contato">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Clientes Page -->
+        <div class="page" id="clientes">
+            <div class="page-header">
+                <h1>Cadastro de Clientes</h1>
+            </div>
+            
+            <div class="form-section">
+                <form class="cliente-form" id="clienteForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sobrenome">Sobrenome</label>
+                            <input type="text" id="sobrenome" name="sobrenome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" name="telefone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dataNascimento">Data de Nascimento</label>
+                            <input type="date" id="dataNascimento" name="dataNascimento" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Cadastrar</button>
+                        <button type="button" class="btn btn-secondary" id="cancelarCliente">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-section">
+                <h3>Clientes Cadastrados</h3>
+                <div class="table-container">
+                    <table class="clientes-table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Telefone</th>
+                                <th>Email</th>
+                                <th>Data Nascimento</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientesTableBody">
+                            <tr>
+                                <td>João Silva</td>
+                                <td>(11) 99999-9999</td>
+                                <td>joao@email.com</td>
+                                <td>15/03/1985</td>
+                                <td>
+                                    <button class="btn-action edit" onclick="editarCliente(1)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" onclick="excluirCliente(1)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Maria Santos</td>
+                                <td>(11) 88888-8888</td>
+                                <td>maria@email.com</td>
+                                <td>22/07/1990</td>
+                                <td>
+                                    <button class="btn-action edit" onclick="editarCliente(2)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" onclick="excluirCliente(2)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reservas Page -->
+        <div class="page" id="reservas">
+            <div class="page-header">
+                <h1>Reserva de Mesas</h1>
+            </div>
+            
+            <div class="form-section">
+                <form class="reserva-form" id="reservaForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="clienteSelect">Selecionar Cliente</label>
+                            <select id="clienteSelect" name="cliente" required>
+                                <option value="">Selecione um cliente</option>
+                                <option value="1">João Silva</option>
+                                <option value="2">Maria Santos</option>
+                                <option value="3">Pedro Costa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="dataReserva">Data</label>
+                            <input type="date" id="dataReserva" name="data" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="horarioReserva">Horário</label>
+                            <input type="time" id="horarioReserva" name="horario" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="numeroPessoas">Número de Pessoas</label>
+                            <input type="number" id="numeroPessoas" name="pessoas" min="1" max="20" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Tipo de Serviço</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="tipoServico" value="rodizio" checked>
+                                <span>Rodízio</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="tipoServico" value="alacarte">
+                                <span>À la carte</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Reservar</button>
+                        <button type="button" class="btn btn-danger" id="cancelarReserva">Cancelar/Desfazer Reserva</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-section">
+                <h3>Reservas Existentes</h3>
+                <div class="table-container">
+                    <table class="reservas-table">
+                        <thead>
+                            <tr>
+                                <th>Cliente</th>
+                                <th>Data</th>
+                                <th>Horário</th>
+                                <th>Pessoas</th>
+                                <th>Tipo</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservasTableBody">
+                            <tr>
+                                <td>João Silva</td>
+                                <td>25/12/2024</td>
+                                <td>19:00</td>
+                                <td>4</td>
+                                <td><span class="tipo-badge rodizio">Rodízio</span></td>
+                                <td>
+                                    <button class="btn-action view" onclick="verDetalhes(1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-action edit" onclick="editarReserva(1)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" onclick="cancelarReserva(1)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Maria Santos</td>
+                                <td>25/12/2024</td>
+                                <td>20:30</td>
+                                <td>2</td>
+                                <td><span class="tipo-badge alacarte">À la carte</span></td>
+                                <td>
+                                    <button class="btn-action view" onclick="verDetalhes(2)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-action edit" onclick="editarReserva(2)">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-action delete" onclick="cancelarReserva(2)">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detalhes da Reserva Page -->
+        <div class="page" id="detalhes-reserva">
+            <div class="page-header">
+                <h1>Detalhes da Reserva</h1>
+                <button class="btn btn-secondary" onclick="voltarReservas()">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </button>
+            </div>
+            
+            <div class="detalhes-container">
+                <div class="detalhes-card">
+                    <div class="detalhes-header">
+                        <h2>Informações da Reserva</h2>
+                    </div>
+                    <div class="detalhes-content">
+                        <div class="detalhe-item">
+                            <label>Nome do Cliente:</label>
+                            <span id="detalheCliente">João Silva</span>
+                        </div>
+                        <div class="detalhe-item">
+                            <label>Data:</label>
+                            <span id="detalheData">25/12/2024</span>
+                        </div>
+                        <div class="detalhe-item">
+                            <label>Horário:</label>
+                            <span id="detalheHorario">19:00</span>
+                        </div>
+                        <div class="detalhe-item">
+                            <label>Número de Pessoas:</label>
+                            <span id="detalhePessoas">4</span>
+                        </div>
+                        <div class="detalhe-item">
+                            <label>Tipo de Serviço:</label>
+                            <span id="detalheTipo" class="tipo-badge rodizio">Rodízio</span>
+                        </div>
+                    </div>
+                    <div class="detalhes-actions">
+                        <button class="btn btn-primary" onclick="editarReservaDetalhes()">
+                            <i class="fas fa-edit"></i> Editar Reserva
+                        </button>
+                        <button class="btn btn-danger" onclick="cancelarReservaDetalhes()">
+                            <i class="fas fa-times"></i> Cancelar Reserva
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configurações Page -->
+        <div class="page" id="configuracoes">
+            <div class="page-header">
+                <h1>Configurações</h1>
+            </div>
+            <div class="config-content">
+                <p>Página de configurações em desenvolvimento...</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
